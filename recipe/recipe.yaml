@@ -157,6 +157,7 @@ outputs:
       host:
         - python ${{ python_min }}.*
       run:
+        - ${{ pin_subpackage('newton', exact=True) }}
         - ${{ pin_subpackage('newton-examples', exact=True) }}
         - python >=${{ python_min }}
         - rerun-sdk >=0.27.1
