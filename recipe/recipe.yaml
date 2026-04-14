@@ -163,8 +163,6 @@ outputs:
         - jupyterlab >=4.4.10
         # Fix missing rerun-notebook dependencies (for pip check).
         - ipykernel <7
-      run_constraints:
-        - pytorch >=2.7.0
 
 about:
   homepage: https://newton-physics.github.io/newton/
