@@ -77,8 +77,8 @@ outputs:
       run:
         - ${{ pin_subpackage('newton', exact=True) }}
         - python >=${{ python_min }}
-        - mujoco-warp >=3.6.0
-        - mujoco >=3.6.0
+        - mujoco-warp >=3.6.0,<3.7.0
+        - mujoco >=3.6.0,<3.7.0
         - newton-actuators >=0.1.0
   # =================
   # newton[importers]
