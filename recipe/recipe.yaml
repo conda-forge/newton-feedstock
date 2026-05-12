@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: newton
-  version: "1.1.0"
+  version: "1.2.0"
   build_number: 0
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://github.com/newton-physics/newton/archive/refs/tags/v${{ version }}.zip
-  sha256: 8ce9d98b31fb730d5019f1ea99109c16b21f5ece0ed8a86bdded3ed595ef6430
+  sha256: 6a8e27f25aa3ae13b31c45e531927d8164489505b311f4526111232fee36d5e8
 
 build:
   noarch: python
