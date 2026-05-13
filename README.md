@@ -32,6 +32,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-newton--all-green.svg)](https://anaconda.org/conda-forge/newton-all) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/newton-all.svg)](https://anaconda.org/conda-forge/newton-all) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/newton-all.svg)](https://anaconda.org/conda-forge/newton-all) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/newton-all.svg)](https://anaconda.org/conda-forge/newton-all) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-newton--examples-green.svg)](https://anaconda.org/conda-forge/newton-examples) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/newton-examples.svg)](https://anaconda.org/conda-forge/newton-examples) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/newton-examples.svg)](https://anaconda.org/conda-forge/newton-examples) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/newton-examples.svg)](https://anaconda.org/conda-forge/newton-examples) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-newton--importers-green.svg)](https://anaconda.org/conda-forge/newton-importers) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/newton-importers.svg)](https://anaconda.org/conda-forge/newton-importers) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/newton-importers.svg)](https://anaconda.org/conda-forge/newton-importers) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/newton-importers.svg)](https://anaconda.org/conda-forge/newton-importers) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-newton--notebook-green.svg)](https://anaconda.org/conda-forge/newton-notebook) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/newton-notebook.svg)](https://anaconda.org/conda-forge/newton-notebook) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/newton-notebook.svg)](https://anaconda.org/conda-forge/newton-notebook) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/newton-notebook.svg)](https://anaconda.org/conda-forge/newton-notebook) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-newton--remesh-green.svg)](https://anaconda.org/conda-forge/newton-remesh) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/newton-remesh.svg)](https://anaconda.org/conda-forge/newton-remesh) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/newton-remesh.svg)](https://anaconda.org/conda-forge/newton-remesh) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/newton-remesh.svg)](https://anaconda.org/conda-forge/newton-remesh) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-newton--sim-green.svg)](https://anaconda.org/conda-forge/newton-sim) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/newton-sim.svg)](https://anaconda.org/conda-forge/newton-sim) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/newton-sim.svg)](https://anaconda.org/conda-forge/newton-sim) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/newton-sim.svg)](https://anaconda.org/conda-forge/newton-sim) |
 
@@ -45,16 +46,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `newton, newton-all, newton-examples, newton-importers, newton-remesh, newton-sim` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `newton, newton-all, newton-examples, newton-importers, newton-notebook, newton-remesh, newton-sim` can be installed with `conda`:
 
 ```
-conda install newton newton-all newton-examples newton-importers newton-remesh newton-sim
+conda install newton newton-all newton-examples newton-importers newton-notebook newton-remesh newton-sim
 ```
 
 or with `mamba`:
 
 ```
-mamba install newton newton-all newton-examples newton-importers newton-remesh newton-sim
+mamba install newton newton-all newton-examples newton-importers newton-notebook newton-remesh newton-sim
 ```
 
 It is possible to list all of the versions of `newton` available on your platform with `conda`:
