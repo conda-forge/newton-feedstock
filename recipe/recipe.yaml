@@ -65,7 +65,7 @@ outputs:
           - python -m newton.tests
         requirements:
           run:
-            - python ${{ python_min }}.*
+            - python 3.11.*
   # ===========
   # newton[sim]
   # ===========
