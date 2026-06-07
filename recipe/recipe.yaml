@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: newton
-  version: "1.2.0"
+  version: "1.2.1"
   build_number: 0
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://github.com/newton-physics/newton/archive/refs/tags/v${{ version }}.zip
-  sha256: 6a8e27f25aa3ae13b31c45e531927d8164489505b311f4526111232fee36d5e8
+  sha256: 2f54752dbf085741c4a67a45ac40ae7bc1b298b625eb00dda762c4d245cae5be
 
 build:
   noarch: python
@@ -33,7 +33,7 @@ outputs:
         - uv-build >=0.11.0
       run:
         - python >=${{ python_min }}
-        - warp-lang >=1.13.0
+        - warp-lang >=1.13.0,<1.14
   # ===========
   # newton[all]
   # ===========
@@ -77,7 +77,7 @@ outputs:
       run:
         - ${{ pin_subpackage('newton', exact=True) }}
         - python >=${{ python_min }}
-        - mujoco-warp >=3.8.0,<3.9.0
+        - mujoco-warp >=3.8.0.3,<3.9.0
         - mujoco >=3.8.0,<3.9.0
   # =================
   # newton[importers]
@@ -116,10 +116,6 @@ outputs:
         - python >=${{ python_min }}
         - open3d >=0.19.0
         - pyfqmr >=0.5.0
-        # Fix missing open3d-cpu dependencies (for pip check).
-        # https://github.com/conda-forge/open3d-feedstock/issues/49
-        - configargparse
-        - nbformat
   # ================
   # newton[examples]
   # ================
