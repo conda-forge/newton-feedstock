@@ -33,7 +33,7 @@ outputs:
         - uv-build >=0.11.0
       run:
         - python >=${{ python_min }}
-        - warp-lang >=1.13.0
+        - warp-lang >=1.13.0,<1.14
   # ===========
   # newton[all]
   # ===========
@@ -58,14 +58,12 @@ outputs:
           imports:
             - newton
           pip_check: true
-          # There are deps solver problems on Python 3.10, and the environment cannot be solved.
-          # Testing imports on Python 3.11 until those problems are resolved.
-          python_version: 3.11.*
+          python_version: ${{ python_min }}.*
       - script:
           - python -m newton.tests
         requirements:
           run:
-            - python 3.11.*
+            - python ${{ python_min }}.*
   # ===========
   # newton[sim]
   # ===========
@@ -77,7 +75,7 @@ outputs:
       run:
         - ${{ pin_subpackage('newton', exact=True) }}
         - python >=${{ python_min }}
-        - mujoco-warp >=3.8.0,<3.9.0
+        - mujoco-warp >=3.8.0.3,<3.9.0
         - mujoco >=3.8.0,<3.9.0
   # =================
   # newton[importers]
@@ -116,10 +114,6 @@ outputs:
         - python >=${{ python_min }}
         - open3d >=0.19.0
         - pyfqmr >=0.5.0
-        # Fix missing open3d-cpu dependencies (for pip check).
-        # https://github.com/conda-forge/open3d-feedstock/issues/49
-        - configargparse
-        - nbformat
   # ================
   # newton[examples]
   # ================
