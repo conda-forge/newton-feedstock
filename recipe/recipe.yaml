@@ -58,7 +58,7 @@ outputs:
           imports:
             - newton
           pip_check: true
-          python_version: ${{ python_min }}.*
+          python_version: 3.11.*
       - script:
           - python -m newton.tests
         requirements:
