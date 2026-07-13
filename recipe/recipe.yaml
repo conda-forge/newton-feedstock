@@ -155,8 +155,6 @@ outputs:
         - jupyterlab >=4.5.7
         - jupyter-server-proxy >=4.5.0
         - viser ==1.0.26
-        # Fix missing rerun-notebook dependencies (for pip check).
-        - ipykernel <7
 
 about:
   homepage: https://newton-physics.github.io/newton/
