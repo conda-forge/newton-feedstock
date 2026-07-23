@@ -77,8 +77,8 @@ outputs:
       run:
         - ${{ pin_subpackage('newton', exact=True) }}
         - python >=${{ python_min }}
-        - mujoco-warp >=3.8.0.3,<3.9.0
-        - mujoco >=3.8.0,<3.9.0
+        - mujoco-warp >=3.10.0.2,<3.11.0
+        - mujoco >=3.10.0,<3.11.0
   # =================
   # newton[importers]
   # =================
@@ -102,7 +102,7 @@ outputs:
         - open3d >=0.19.0
         - openusd >=25.5,<26.5
         - usd-exchange >=2.2.0
-        - newton-usd-schemas >=0.3.1
+        - newton-usd-schemas >=0.4.0
   # ==============
   # newton[remesh]
   # ==============
