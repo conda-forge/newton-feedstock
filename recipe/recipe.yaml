@@ -63,6 +63,9 @@ outputs:
           python_version: 3.11.*
       - script:
           - python -m newton.tests
+        files:
+          source:
+            - asv/
         requirements:
           run:
             - python 3.11.*
