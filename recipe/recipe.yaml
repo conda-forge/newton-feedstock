@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: newton
-  version: "1.4.0"
+  version: "1.5.0"
   build_number: 0
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://github.com/newton-physics/newton/archive/refs/tags/v${{ version }}.zip
-  sha256: 342c22e49632c0348fc1e6e570f59f9450044df879e7659a870704a70b4bab31
+  sha256: febf007fd4e2b4a44e8aee0d5a89def1e16ef7e4af35976ca38e84feeb7bfe86
 
 build:
   noarch: python
@@ -33,7 +33,15 @@ outputs:
         - uv-build >=0.11.0
       run:
         - python >=${{ python_min }}
-        - warp-lang >=1.14.0
+        - warp-lang >=1.16.0
+    tests:
+      - python:
+          imports:
+            - newton
+          pip_check: true
+          python_version:
+            - 3.11.*
+            - "*"
   # ===========
   # newton[all]
   # ===========
@@ -60,12 +68,34 @@ outputs:
           pip_check: true
           # There are deps solver problems on Python 3.10, and the environment cannot be solved.
           # Testing imports on Python 3.11 until those problems are resolved.
-          python_version: 3.11.*
+          python_version:
+            - 3.11.*
+            - "*"
       - script:
+          # The benchmark tests (test_benchmark_metrics, test_benchmark_simulation)
+          # locate the benchmark modules relative to the installed 'newton' package
+          # via Path(__file__).parents[2], i.e. they expect the 'asv' folder,
+          # 'asv.conf.json' and the '.github/workflows/aws_gpu_benchmarks.yml'
+          # workflow as siblings of the 'newton' package in site-packages.
+          # The test files are instead staged in the working directory, so we symlink
+          # them into site-packages to let the tests find them.
+          - SITE_PACKAGES=$(python -c "import os, newton; print(os.path.dirname(os.path.dirname(newton.__file__)))")
+          - ln -s "$(pwd)/asv" "${SITE_PACKAGES}/asv"
+          - ln -s "$(pwd)/asv.conf.json" "${SITE_PACKAGES}/asv.conf.json"
+          - mkdir -p "${SITE_PACKAGES}/.github/workflows"
+          - ln -s "$(pwd)/.github/workflows/aws_gpu_benchmarks.yml" "${SITE_PACKAGES}/.github/workflows/aws_gpu_benchmarks.yml"
           - python -m newton.tests
+        files:
+          source:
+            - asv/
+            - asv.conf.json
+            - .github/workflows/aws_gpu_benchmarks.yml
         requirements:
           run:
             - python 3.11.*
+            # Imported by the benchmark modules exercised by test_benchmark_metrics
+            # and test_benchmark_simulation (asv_runner.benchmarks.mark).
+            - asv_runner >=0.2.5
   # ===========
   # newton[sim]
   # ===========
@@ -77,8 +107,8 @@ outputs:
       run:
         - ${{ pin_subpackage('newton', exact=True) }}
         - python >=${{ python_min }}
-        - mujoco-warp >=3.10.0.2,<3.11.0
-        - mujoco >=3.10.0,<3.11.0
+        - mujoco-warp >=3.11.0,<3.12.0
+        - mujoco >=3.11.0,<3.12.0
   # =================
   # newton[importers]
   # =================
@@ -102,7 +132,7 @@ outputs:
         - open3d >=0.19.0
         - openusd >=25.5,<26.5
         - usd-exchange >=2.2.0
-        - newton-usd-schemas >=0.4.0
+        - newton-usd-schemas >=0.4.1
   # ==============
   # newton[remesh]
   # ==============

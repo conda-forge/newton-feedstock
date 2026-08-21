@@ -48,31 +48,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `newton, newton-all, newton-examples, newton-importers, newton-notebook, newton-remesh, newton-sim` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install newton newton-all newton-examples newton-importers newton-notebook newton-remesh newton-sim
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install newton newton-all newton-examples newton-importers newton-notebook newton-remesh newton-sim
 ```
 
-It is possible to list all of the versions of `newton` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add newton newton-all newton-examples newton-importers newton-notebook newton-remesh newton-sim
+# for installing globally
+pixi global install newton newton-all newton-examples newton-importers newton-notebook newton-remesh newton-sim
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `newton` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search newton --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search newton --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search newton --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -84,6 +126,8 @@ mamba repoquery whoneeds newton --channel conda-forge
 # List dependencies of `newton`:
 mamba repoquery depends newton --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
