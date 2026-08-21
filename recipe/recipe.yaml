@@ -89,6 +89,9 @@ outputs:
         requirements:
           run:
             - python 3.11.*
+            # Imported by the benchmark modules exercised by test_benchmark_metrics
+            # and test_benchmark_simulation (asv_runner.benchmarks.mark).
+            - asv_runner >=0.2.5
   # ===========
   # newton[sim]
   # ===========
