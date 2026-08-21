@@ -64,10 +64,20 @@ outputs:
             - 3.11.*
             - "*"
       - script:
+          # The benchmark tests (test_benchmark_metrics, test_benchmark_simulation)
+          # locate the benchmark modules relative to the installed 'newton' package
+          # via Path(__file__).parents[2], i.e. they expect the 'asv' folder and
+          # 'asv.conf.json' as siblings of the 'newton' package in site-packages.
+          # The test files are instead staged in the working directory, so we symlink
+          # them into site-packages to let the tests find them.
+          - SITE_PACKAGES=$(python -c "import os, newton; print(os.path.dirname(os.path.dirname(newton.__file__)))")
+          - ln -s "$(pwd)/asv" "${SITE_PACKAGES}/asv"
+          - ln -s "$(pwd)/asv.conf.json" "${SITE_PACKAGES}/asv.conf.json"
           - python -m newton.tests
         files:
           source:
             - asv/
+            - asv.conf.json
         requirements:
           run:
             - python 3.11.*
