@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: newton
-  version: "1.5.0"
+  version: "1.5.1"
   build_number: 0
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://github.com/newton-physics/newton/archive/refs/tags/v${{ version }}.zip
-  sha256: febf007fd4e2b4a44e8aee0d5a89def1e16ef7e4af35976ca38e84feeb7bfe86
+  sha256: f1d9feb83e8402fb81c7ffc590adee2e86edf94aa8ec40db2c2911ce676a0953
 
 build:
   noarch: python
@@ -131,7 +131,7 @@ outputs:
         - resolve-robotics-uri-py >=0.4.0
         - open3d >=0.19.0
         - openusd >=25.5,<26.5
-        - usd-exchange >=2.2.0
+        - usd-exchange >=2.2.0,<3
         - newton-usd-schemas >=0.4.1
   # ==============
   # newton[remesh]
