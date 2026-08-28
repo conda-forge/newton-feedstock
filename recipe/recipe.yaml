@@ -131,7 +131,7 @@ outputs:
         - resolve-robotics-uri-py >=0.4.0
         - open3d >=0.19.0
         - openusd >=25.5,<26.5
-        - usd-exchange >=2.2.0
+        - usd-exchange >=2.2.0,<3
         - newton-usd-schemas >=0.4.1
   # ==============
   # newton[remesh]
