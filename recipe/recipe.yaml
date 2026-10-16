@@ -130,8 +130,8 @@ outputs:
         - pycollada >=0.9
         - resolve-robotics-uri-py >=0.4.0
         - open3d >=0.19.0
-        - openusd >=25.5,<26.5
-        - usd-exchange >=2.2.0,<3
+        - openusd >=25.5,<26.9
+        - usd-exchange >=2.3.0,<4
         - newton-usd-schemas >=0.5.0
   # ==============
   # newton[remesh]
