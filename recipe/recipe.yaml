@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: newton
-  version: "1.7.0"
+  version: "1.8.0"
   build_number: 0
 
 recipe:
@@ -11,7 +11,7 @@ recipe:
 
 source:
   url: https://github.com/newton-physics/newton/archive/refs/tags/v${{ version }}.zip
-  sha256: f0aa60baa4a645207915c6bd7d0a490d2dead3dd7dd438db2b79e142df013e31
+  sha256: f7284071ae8d744d1856894ab239ae98e63eae3721d0fc9f50c1d663fef364f6
 
 build:
   noarch: python
@@ -101,7 +101,7 @@ outputs:
             # Imported by the benchmark modules exercised by test_benchmark_metrics
             # and test_benchmark_simulation (asv_runner.benchmarks.mark).
             - asv_runner >=0.2.5
-            
+
   # ===========
   # newton[sim]
   # ===========
