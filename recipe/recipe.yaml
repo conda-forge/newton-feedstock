@@ -134,7 +134,7 @@ outputs:
         - trimesh >=4.6.8
         - meshio >=5.3.5
         - pycollada >=0.9
-        - pillow >=0.9
+        - pillow >=11.3.0
         - resolve-robotics-uri-py >=0.5.1
         - open3d >=0.20.0
         - openusd >=25.5,<26.9
@@ -192,7 +192,7 @@ outputs:
         - rerun-sdk >=0.27.1
         - jupyterlab >=4.5.7
         - jupyter-server-proxy >=4.5.0
-        - viser ==1.0.26
+        - viser >=1.1.1
 
 about:
   homepage: https://newton-physics.github.io/newton/
